@@ -4,9 +4,11 @@ from django.contrib import messages
 
 
 # Create your views here.
-def home(request):
+def Dashboard(request):
     if not request.user.is_authenticated:
         messages.warning(request,"Please Login  ")
         return redirect('/auth/login')
+    
+    
     
     return render(request,'index.html')
