@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+Dashboard  
+{% endblock title %}
+
+
+{% block heading %}
+Dashboard
+    
+{% endblock heading %}
+    
+
+
+{% block content %}
+    
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+  
+        <div class="card-body">
+          <h5 class="card-title">Total Members</h5>
+          <p class="card-text">{{ total_members }}.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+  
+        <div class="card-body">
+          <h5 class="card-title">Total Notices</h5>
+          <p class="card-text">{{ total_notices }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+  
+        <div class="card-body">
+          <h5 class="card-title">Total Events</h5>
+          <p class="card-text">{{ total_events }}.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+<h2>Recent Notices</h2>
+<ul>
+    {% for notice in recent_notices %}
+        <li><strong>{{ notice.title }}</strong> - {{ notice.posted_date|date:"d M Y" }}<br>{{ notice.description }}</li>
+    {% empty %}
+        <p>No recent notices.</p>
+    {% endfor %}
+</ul>
+
+<h2>Upcoming Events</h2>
+<ul>
+    {% for event in upcoming_events %}
+        <li><strong>{{ event.name }}</strong> - {{ event.event_date|date:"d M Y" }}<br>{{ event.description }}</li>
+    {% empty %}
+        <p>No upcoming events.</p>
+    {% endfor %}
+</ul>
+{% endblock content %}
+    
