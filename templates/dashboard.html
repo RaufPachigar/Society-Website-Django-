@@ -3,6 +3,10 @@
 Dashboard  
 {% endblock title %}
 
+{% block intro %}
+Dashboard
+{% endblock intro %}
+
 
 {% block heading %}
 Dashboard
@@ -43,23 +47,118 @@ Dashboard
     </div>
     
   </div>
-  
-<h2>Recent Notices</h2>
-<ul>
-    {% for notice in recent_notices %}
-        <li><strong>{{ notice.title }}</strong> - {{ notice.posted_date|date:"d M Y" }}<br>{{ notice.description }}</li>
-    {% empty %}
-        <p>No recent notices.</p>
-    {% endfor %}
-</ul>
 
-<h2>Upcoming Events</h2>
-<ul>
-    {% for event in upcoming_events %}
-        <li><strong>{{ event.name }}</strong> - {{ event.event_date|date:"d M Y" }}<br>{{ event.description }}</li>
-    {% empty %}
-        <p>No upcoming events.</p>
-    {% endfor %}
-</ul>
+
+
+    
+    
+
+  <style type="text/css">
+    body{margin-top:20px;
+background:#eee;
+}
+.card {
+box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+.avatar.sm {
+width: 2.25rem;
+height: 2.25rem;
+font-size: .818125rem;
+}
+.table-nowrap .table td, .table-nowrap .table th {
+white-space: nowrap;
+}
+.table>:not(caption)>*>* {
+padding: 0.75rem 1.25rem;
+border-bottom-width: 1px;
+}
+table th {
+font-weight: 600;
+background-color: #eeecfd !important;
+}
+</style>
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+<div class="row">
+    <div class="col-12 mb-3 mb-lg-5">
+        <div class="overflow-hidden card table-nowrap table-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Recent Notices</h5>
+                <a href="/Notice" class="btn btn-light btn-sm">View All</a>
+            </div>
+            <div class="table-responsive">
+              <div class="list-group">
+                <ul class="list-group-item list-group-item-action list-group-item-warning">
+                  {% for notice in recent_notices %}
+                      <li><strong>{{ notice.title }}</strong> - {{ notice.posted_date|date:"d M Y" }}<br>{{ notice.description }}</li>
+                  {% empty %}
+                      <p>No recent notices.</p>
+                  {% endfor %}
+              </ul>             
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<style type="text/css">
+  body{margin-top:20px;
+background:#eee;
+}
+.card {
+box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+.avatar.sm {
+width: 2.25rem;
+height: 2.25rem;
+font-size: .818125rem;
+}
+.table-nowrap .table td, .table-nowrap .table th {
+white-space: nowrap;
+}
+.table>:not(caption)>*>* {
+padding: 0.75rem 1.25rem;
+border-bottom-width: 1px;
+}
+table th {
+font-weight: 600;
+background-color: #eeecfd !important;
+}
+</style>
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+<div class="row">
+  <div class="col-12 mb-3 mb-lg-5">
+      <div class="overflow-hidden card table-nowrap table-card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Upcoming Events</h5>
+              <a href="/Events" class="btn btn-light btn-sm">View All</a>
+          </div>
+          <div class="table-responsive">
+            <div class="list-group">
+              <ul class="list-group-item list-group-item-action list-group-item-warning">
+                {% for event in upcoming_events %}
+                    <li><strong>{{ event.name }}</strong> - {{ event.event_date|date:"d M Y" }}<br>{{ event.description }}</li>
+                {% empty %}
+                    <p>No upcoming events.</p>
+                {% endfor %}
+            </ul>            
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+
 {% endblock content %}
     

@@ -67,10 +67,10 @@
       <ul>
         <li><a href="/" ><i class="bi bi-house navicon"></i>Dashboard</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> My Profile</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Society Members</a></li>
+        <li><a href="/Society-Members"><i class="bi bi-file-earmark-text navicon"></i> Society Members</a></li>
         <li><a href="#portfolio"><i class="bi bi-file-earmark-text navicon"></i> Society Watchman</a></li>
-        <li><a href="#services"><i class="bi bi-newspaper navicon"></i> Notice</a></li>
-        <li><a href="#services"><i class="bi bi-calendar-event navicon"></i> Events</a></li>
+        <li><a href="/Notice"><i class="bi bi-newspaper navicon"></i> Notice</a></li>
+        <li><a href="/Events"><i class="bi bi-calendar-event navicon"></i> Events</a></li>
 
 
         {% if request.user.is_authenticated %}
@@ -105,11 +105,15 @@
 
   <!-- Heading -->
   <div class="p-5 bg-body-tertiary mb-4">
-    <h1 class="">Dashboard</h1>
+    <h1 class="">
+    {% block intro %}
+      
+    {% endblock intro %}
+      </h1>
     <!-- Breadcrumb -->
     <nav class="d-flex">
       <h6 class="mb-0">
-        <a href="" class="text-reset">Home</a>
+        <a href="/" class="text-reset">Home</a>
         <span>/</span>
         {% comment %} <a href="" class="text-reset">Analytics</a>
         <span>/</span> {% endcomment %}
@@ -136,15 +140,15 @@
   <footer id="footer" class="footer position-relative light-background">
 
     <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
-      </div>
+      {% comment %} <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">No one</strong> <span>All Rights Reserved</span></p>
+      </div> {% endcomment %}
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="#">Rauf Pachigar</a>
       </div>
     </div>
 

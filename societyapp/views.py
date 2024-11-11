@@ -14,8 +14,8 @@ def dashboard_view(request):
     total_members = Member.objects.count()
     total_notices = Notice.objects.count()
     total_events = Event.objects.count()
-    recent_notices = Notice.objects.order_by('-posted_date')[:5]  # Last 5 notices
-    upcoming_events = Event.objects.order_by('event_date')[:5]    # Next 5 upcoming events
+    recent_notices = Notice.objects.order_by('-posted_date')[:1]  # Last 5 notices
+    upcoming_events = Event.objects.order_by('event_date')[:1]    # Next 5 upcoming events
 
     context = {
         'total_members': total_members,
@@ -29,3 +29,13 @@ def dashboard_view(request):
     
     
     return render(request,'index.html')
+
+
+def members(request):
+    return render(request, 'members.html')
+
+def notice(request):
+    return render(request, 'notice.html')
+
+def events(request):
+    return render(request, 'events.html')
