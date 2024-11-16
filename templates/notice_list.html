@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Notice
+{% endblock title %}
+{% block intro %}
+Notice
+{% endblock intro %}
+
+
+
+{% block heading %}
+Notice
+    
+{% endblock heading %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3 mb-lg-5">
+            <div class="overflow-hidden card table-nowrap table-card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Recent Notices</h5>
+                    <a href="/Notice/create/" class="btn btn-light btn-sm">Add New Notice</a>
+
+                </div>
+                <div class="table-responsive">
+                  <div class="list-group">
+                        {% for notice in notices %}
+                  
+                    <a href="{% url 'notice_detail' notice.id %}" class="list-group-item list-group-item-action list-group-item-primary">
+                        {{ notice.title }}</a>
+                        
+                            <div class="dropdown-menu dropdown-menu-end" style="">
+                                <a href="{% url 'notice_update' notice.id %}" class="dropdown-item">Edit</a>
+                                <a href="{% url 'notice_delete' notice.id %}" class="dropdown-item">Delete</a>
+                            </div>
+                        
+
+                    {% endfor %}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+{% endblock content %}
+<ul>
+    {% for notice in notices %}
+        <li>
+            <a href="{% url 'notice_detail' notice.id %}">{{ notice.title }}</a>
+            <a href="{% url 'notice_update' notice.id %}">Edit</a>
+            <a href="{% url 'notice_delete' notice.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+<div class="drodown">
+    <a data-bs-toggle="dropdown" href="#" class="btn p-1" aria-expanded="false">
+<i class="fa fa-bars" aria-hidden="true"></i>
+</a>
+
+
+</div>

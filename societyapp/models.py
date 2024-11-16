@@ -12,7 +12,7 @@ class Member(models.Model):
 
 class Notice(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    content = models.TextField()
     posted_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
