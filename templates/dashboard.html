@@ -145,7 +145,7 @@ background-color: #eeecfd !important;
             <div class="list-group">
               <ul class="list-group-item list-group-item-action list-group-item-warning">
                 {% for event in upcoming_events %}
-                    <li><strong>{{ event.name }}</strong> - {{ event.event_date|date:"d M Y" }}<br>{{ event.description }}</li>
+                    <li><strong>{{ event.title }}</strong> - {{ event.event_date|date:"d M Y" }}<br>{{ event.description }}</li>
                 {% empty %}
                     <p>No upcoming events.</p>
                 {% endfor %}

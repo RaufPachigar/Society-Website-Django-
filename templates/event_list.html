@@ -30,7 +30,7 @@ Notice
             <div class="overflow-hidden card table-nowrap table-card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Recent Notices</h5>
-                    <a href="/Notice/create/" class="btn btn-light btn-sm">Add New Notice</a>
+                    <a href="/Events/create/" class="btn btn-light btn-sm">Add New Event</a>
 
                 </div>
                 <div class="table-responsive">
@@ -38,12 +38,12 @@ Notice
 
                     
 
-                        {% for notice in notices %}
+                        {% for event  in events  %}
                   
-                    <a href="{% url 'notice_detail' notice.id %}" class="list-group-item list-group-item-action list-group-item-primary">
-                        {{ notice.title }}</a>
+                    <a href="{% url 'event_detail' event.id %}" class="list-group-item list-group-item-action list-group-item-primary">
+                        {{ event.title }} <span style="float:right;"> - {{ event.event_date }}</span></a>  
                         {% empty %}
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">No Notice found.</a>                       
+                         <a href="#" class="list-group-item list-group-item-action list-group-item-primary">No events found.</a>
                            
                         {% endfor %}
                   </div>
@@ -55,13 +55,15 @@ Notice
     
 {% endblock content %}
 <ul>
-    {% for notice in notices %}
+    {% for event  in events  %}
         <li>
-            <a href="{% url 'notice_detail' notice.id %}">{{ notice.title }}</a>
+            <a href="{% url 'notice_detail' event.id %}">{{ Event.title }}</a>
             <a href="{% url 'notice_update' notice.id %}">Edit</a>
             <a href="{% url 'notice_delete' notice.id %}">Delete</a>
         </li>
-    {% endfor %}
+        {% empty %}
+            <li>No events found.</li>
+        {% endfor %}
 </ul>
 
 

@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
-
 {% block title %}
-Notice Detail 
+Event Detail  
 {% endblock title %}
 
 {% block intro %}
-Notice Detail 
+Event Detail  
 {% endblock intro %}
 
 
-
 {% block heading %}
-Notice Detail 
+Event Detail  
+    
 {% endblock heading %}
 
 
@@ -39,25 +38,29 @@ Notice Detail
                           class="form-control"
                           id="formControlDisabled"
                           type="text"
-                          value="{{notice.title}}"  
+                          value="{{event.title}}"  
                           readonly                        
                         />
                         
                       </div>
                     
                       <div data-mdb-input-init class="form-outline">
-                        <label class="form-label" for="textAreaExample">Content : </label>
-                        <textarea class="form-control" id="textAreaExample1" rows="4" readonly>{{notice.content}}</textarea>
+                        <label class="form-label" for="textAreaExample">desciption : </label>
+                        <textarea class="form-control" id="textAreaExample1" rows="4" readonly>{{event.description}}</textarea>
                         
-                      </div>                  
-                 
+                      </div>
+                      
+                      <div data-mdb-input-init class="form-outline pt-4">
+                      <p><strong> Date: </strong>{{ event.event_date }}</p>                  
+                      </div>
+
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 pt-4">
-                        <a href="{% url 'notice_update' notice.id %}" class="btn btn-primary btn-lg mx-2 ">Edit </a>
-                        <form action="{% url 'notice_delete' notice.id %}" method="POST" style="display:inline;">
+                        <a href="{% url 'event_update' event.id %}" class="btn btn-primary btn-lg mx-2 ">Edit </a>
+                        <form action="{% url 'event_delete' event.id %}" method="POST" style="display:inline;">
                           {% csrf_token %}
                           <button type="submit" class="btn btn-primary btn-lg mx-2 " onclick="return confirmDelete();">Delete</button>
                         </form>
-                        <a href="/Notice" class="btn btn-primary btn-lg mx-2 ">Go Back</a>
+                        <a href="{% url 'event_list' %}" class="btn btn-primary btn-lg mx-2 ">Go Back</a>
                       </div>
   
                  
@@ -74,5 +77,5 @@ Notice Detail
 
 
 
-{% endblock content %}
+{% endblock content %} 
     
